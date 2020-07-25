@@ -16,5 +16,5 @@ const projectPath = `${Deno.cwd()}/persistence-example-project-folder`
 
 // reading from remote repo
 const linkToExampleDataRemote = "https://raw.githubusercontent.com/michael-spengler/persistence/master/example-file.json"
-const remoteFileContent = JSON.parse(await Persistence.readFromRemoteFile(linkToExampleDataRemote))
+const remoteFileContent = Persistence.readFromRemoteFile(linkToExampleDataRemote)
 console.log(`remote file content: ${remoteFileContent}`) 
