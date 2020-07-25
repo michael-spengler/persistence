@@ -20,6 +20,7 @@ export class Persistence {
 		commandToBeExecuted = `${commandToBeExecuted} && git add .`
 		commandToBeExecuted = `${commandToBeExecuted} && git commit -m ${commitMessage}`
 		commandToBeExecuted = `${commandToBeExecuted} && git push https://${username}:${pw}@github.com/${org}/${repo}.git"`
+		console.log(`executing command: ${commandToBeExecuted}`)
 		console.log(await CommandLineProcessor.process(commandToBeExecuted))
 	}
 
