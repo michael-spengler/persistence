@@ -1,22 +1,25 @@
 
 // import { Persistence } from "https://deno.land/x/persistence/persistence.ts"
-import { Persistence } from "https://raw.githubusercontent.com/michael-spengler/persistence/master/persistence.ts"
+// import { Persistence } from "https://raw.githubusercontent.com/michael-spengler/persistence/master/persistence.ts"
+import { Persistence } from "./persistence.ts"
 import { pw } from './topsecret/config.ts'
 
 // saving to local file
-const pathToData = `${Deno.cwd()}/example-file.json`
-await Persistence.saveToLocalFile(pathToData, JSON.stringify([]))
+const projectPath = `${Deno.cwd()}/persistence-example-project-folder`
+const pathToFile = `${projectPath}/example-file.json`
+await Persistence.saveToLocalFile(pathToFile, JSON.stringify([{foo: "foo :)"}]))
 
 // reading from local file
-const localFileContent = await Persistence.readFromLocalFile(pathToData)
+const localFileContent = await Persistence.readFromLocalFile(pathToFile)
 console.log(localFileContent)
 
 // saving to remote repo
-const projectPath = `${Deno.cwd()}/persistence-example-project-folder`
-await Persistence.commitAndPush(projectPath, 'michael-spengler', projectPath, 'michael-spengler', pw) // commented out as I should not publish my pw
-// await Persistence.commitAndPush(projectPath, org, repo, userName, pw) // commented out as I should not publish my pw
+const userName = "michael-spengler"
+const password = pw
+const org = "michael-spengler"
+const repo = "persistence-example-project-folder"
+await Persistence.commitAndPush(projectPath, userName, password, org, repo) // commented out as I should not publish my pw
 
 // reading from remote repo
-const linkToExampleDataRemote = "https://raw.githubusercontent.com/michael-spengler/persistence/master/example-file.json"
-const remoteFileContent = await Persistence.readFromRemoteFile(linkToExampleDataRemote)
-console.log(`remote file content: ${remoteFileContent}`) 
+const linkToExampleDataRemote = "https://raw.githubusercontent.com/michael-spengler/persistence-example-project-folder/master/example-file.json"
+console.log(`remote file content: ${await Persistence.readFromRemoteFile(linkToExampleDataRemote)}`) 

@@ -1,5 +1,5 @@
 import { CommandLineProcessor } from "https://deno.land/x/commandline_processor/commandline-processor.ts"
-import axiod from "https://deno.land/x/axiod/mod.ts";
+import api from 'https://deno.land/x/api/index.ts'
 
 export class Persistence {
 
@@ -15,17 +15,19 @@ export class Persistence {
 		return Persistence.decoder.decode(await Deno.readFile(localFilePath))
 	}
 
-	public static async commitAndPush(projectPath: string, org: string, repo: string, username: string, pw: string, commitMessage: string = "automated commit"): Promise<void> {
-		let commandToBeExecuted = `cd ${projectPath}`
-		commandToBeExecuted = `${commandToBeExecuted} && git add .`
-		commandToBeExecuted = `${commandToBeExecuted} && git commit -m ${commitMessage}`
-		commandToBeExecuted = `${commandToBeExecuted} && git push https://${username}:${pw}@github.com/${org}/${repo}.git"`
+	public static async commitAndPush(projectPath: string, username: string, pw: string, org: string, repo: string, commitMessage: string = "automated commit"): Promise<void> {
+		let commandToBeExecuted = `./persistence-commit-and-push.sh ${projectPath} ${username} ${pw} ${org} ${repo} ${commitMessage} `
 		console.log(`executing command: ${commandToBeExecuted}`)
 		console.log(await CommandLineProcessor.process(commandToBeExecuted))
 	}
 
-	public static async readFromRemoteFile(remoteFilePath: string): Promise<string> {
-		return (await axiod.get(remoteFilePath)).data
+	public static async readFromRemoteFile(remoteFilePath: string) {
+		const apiResult = await api.get(remoteFilePath)
+		console.log('abc')
+		console.log(apiResult)
+		console.log('abc')
+
+		return JSON.stringify(apiResult)
 	}
 
 }
