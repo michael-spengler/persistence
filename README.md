@@ -1,14 +1,6 @@
 # Persistence
 
 
-## Usage example for your code
-
-```
-
-import { Persistence } from "https://deno.land/x/persistence/persistence.ts"
-
-
-```
 
 ## Call usage example via command line
 ```
