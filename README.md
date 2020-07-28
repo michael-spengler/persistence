@@ -2,6 +2,8 @@
 
 With this module you can use GitHub as a database. I guess this is only recommendable for small projects.
 
+## Preparation 
+Make sure you have a folder at the place where you execute the following usage example (mkdir persistence-example-project-folder)  
 
 ## Call usage example via command line
 ```
