@@ -1,6 +1,5 @@
-// import { Persistence } from "https://deno.land/x/persistence/persistence.ts"
+import { Persistence } from "https://deno.land/x/persistence/persistence.ts"
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
-import { Persistence } from "https://raw.githubusercontent.com/michael-spengler/persistence/master/persistence.ts"
 
 
 Deno.test("saving correctly to local file", async (): Promise<void> => {
@@ -21,6 +20,7 @@ Deno.test("reading correctly from remote file", async (): Promise<void> => {
     const remoteFileContentAsJSON = JSON.parse(await Persistence.readFromRemoteFile(linkToExampleDataRemote))
 
     assertEquals(remoteFileContentAsJSON, [{foo: "foo :)"}])
+    
 });
 
 
