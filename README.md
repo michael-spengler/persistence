@@ -18,7 +18,7 @@ deno test --allow-net --allow-read --allow-write --allow-run https://deno.land/x
 ``` 
 
 ## Troubleshooting
-If you get an errormessage like the following just:
+If you get an errormessage like shown below just:
 ```
 mkdir persistence-example-project-folder 
 ```
