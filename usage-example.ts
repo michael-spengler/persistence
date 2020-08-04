@@ -1,5 +1,5 @@
 
-import { Persistence } from "https://deno.land/x/persistence/persistence.ts"
+import { Persistence } from "https://deno.land/x/persistence@1.1.0/persistence.ts"
 
 const projectPathForData = `${Deno.cwd()}/persistence-example-project-folder`
 

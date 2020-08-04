@@ -6,11 +6,11 @@ With this module you can use GitHub as a database. I guess this is only recommen
 ## Call usage example via command line
 ```
 
-deno run --allow-net --allow-read --allow-write --allow-run https://deno.land/x/persistence/usage-example.ts
+deno run --allow-net --allow-read --allow-write --allow-run https://deno.land/x/persistence@1.1.0/usage-example.ts
 
 ```
 
-If you get an errormessage like shown below just:
+If you get an errormessage like the one shown below, just:
 ```
 mkdir persistence-example-project-folder 
 ```
@@ -22,6 +22,6 @@ as this folder is used for the usage example and for the tests.
 ## Execute the tests 
 ```
 
-deno test --allow-net --allow-read --allow-write --allow-run https://deno.land/x/persistence/test.ts
+deno test --allow-net --allow-read --allow-write --allow-run https://deno.land/x/persistence@1.1.0/test.ts
 
 ``` 

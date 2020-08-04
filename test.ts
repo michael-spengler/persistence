@@ -1,5 +1,5 @@
-import { Persistence } from "https://deno.land/x/persistence/persistence.ts"
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { Persistence } from "https://deno.land/x/persistence@1.1.0/persistence.ts"
 
 
 Deno.test("saving correctly to local file", async (): Promise<void> => {
