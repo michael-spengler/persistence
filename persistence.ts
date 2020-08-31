@@ -12,7 +12,11 @@ export class Persistence {
 	}
 
 	public static async readFromLocalFile(localFilePath: string): Promise<string> {
-		return Persistence.decoder.decode(await Deno.readFile(localFilePath))
+		try {
+			return Persistence.decoder.decode(await Deno.readFile(localFilePath))
+		} catch(error){
+			throw new Error(`error while reading ${localFilePath}: ${error.message}`)
+		}
 	}
 
 	public static async commitAndPush(projectPath: string, username: string, pw: string, org: string, repo: string, commitMessage: string = "automated commit"): Promise<void> {
