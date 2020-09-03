@@ -8,7 +8,12 @@ export class Persistence {
 	private static encoder = new TextEncoder()
 
 	public static async saveToLocalFile(filePath: string, data: string) {
-		await Deno.writeFile(`${filePath}`, Persistence.encoder.encode(data))
+		try {
+			const test = JSON.parse(data)
+			await Deno.writeFile(`${filePath}`, Persistence.encoder.encode(data))
+		} catch(error){
+			throw new Error(`Data could probably not be parsed properly: ${error.message}`)
+		}
 	}
 
 	public static async readFromLocalFile(localFilePath: string): Promise<string> {
