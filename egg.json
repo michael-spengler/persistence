@@ -1,0 +1,10 @@
+{
+                                "name": "persistence",
+                                "description": "With this module you can use GitHub as a database. I guess this is only recommendable for small projects.",
+                                "homepage": "https://github.com/michael-spengler/persistence",
+                                "files": [
+                                  "./**/*.ts",
+                                  "README.md"
+                                ],
+                                "entry": "./mod.ts"
+                              }
